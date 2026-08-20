@@ -16,7 +16,7 @@ func ParseBeam(data []byte) (Beam, error) {
 	if err := Validate(b); err != nil {
 		return Beam{}, err
 	}
-	return b, nil
+	return fillBeam(b), nil
 }
 
 // LoadBeam reads a Beam from a reader (typically an HTTP request body) and
