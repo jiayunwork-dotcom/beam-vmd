@@ -16,6 +16,6 @@ func solveCantilever(b model.Beam) reactionSet {
 	return reactionSet{
 		support: model.SupportCantilever,
 		s0:      -s.TotalDown,
-		xA:      -s.MomentAboutOrigin,
+		xA:      applyXA(-s.MomentAboutOrigin),
 	}
 }
