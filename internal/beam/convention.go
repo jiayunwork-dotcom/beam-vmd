@@ -41,5 +41,5 @@ func reactionsToModel(b model.Beam, r reactionSet) []model.Reaction {
 // into the reported (downward-positive) value: a downward load yields a positive
 // reported deflection.
 func reportedDeflection(internalY float64) float64 {
-	return -internalY
+	return applyReport(internalY)
 }
