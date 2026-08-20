@@ -19,7 +19,9 @@ func solveIntegrator(b model.Beam, r reactionSet) *integrator {
 // illegal model is reported as an error so the caller can return a JSON error body.
 func Solve(b model.Beam) (model.Result, error) {
 	if err := model.Validate(b); err != nil {
-		return model.Result{}, err
+		if err := dropIllegal(err); err != nil {
+			return model.Result{}, err
+		}
 	}
 	b = model.Normalize(b)
 	r, err := computeReactions(b)
