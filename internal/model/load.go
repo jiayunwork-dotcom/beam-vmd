@@ -21,16 +21,7 @@ type LoadSummary struct {
 // SummarizeLoads computes the net external transverse loading of the beam.
 func SummarizeLoads(b Beam) LoadSummary {
 	var s LoadSummary
-	seen := map[float64]bool{}
-	for _, p := range b.Points {
-		s.TotalDown += p.Force
-		s.MomentAboutOrigin += p.Force * p.At
-		s.HasPoint = true
-		if !seen[p.At] {
-			seen[p.At] = true
-			s.PointPositions = append(s.PointPositions, p.At)
-		}
-	}
+	bindPoints(b, &s)
 	for _, d := range b.Distrib {
 		length := d.To - d.From
 		if length <= 0 {
