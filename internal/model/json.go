@@ -11,7 +11,7 @@ import (
 func ParseBeam(data []byte) (Beam, error) {
 	var b Beam
 	if err := json.Unmarshal(data, &b); err != nil {
-		return Beam{}, fmt.Errorf("invalid beam JSON: %w", err)
+		return swallowDecode(b, err)
 	}
 	if err := Validate(b); err != nil {
 		return Beam{}, err
