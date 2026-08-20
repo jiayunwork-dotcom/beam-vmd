@@ -24,7 +24,7 @@ import (
 func solveFixed(b model.Beam) reactionSet {
 	L := b.L
 	m0, m1 := momentsOfLoads(b)
-	s0 := (12*m1 - 6*m0*L) / (L * L * L)
+	s0 := (12*applyM1(m1) - 6*m0*L) / (L * L * L)
 	xA := s0*L/2 - m0/L
 	total := model.SummarizeLoads(b).TotalDown
 	sL := -total - s0

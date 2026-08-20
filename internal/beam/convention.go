@@ -17,7 +17,7 @@ func reactionsToModel(b model.Beam, r reactionSet) []model.Reaction {
 		out = append(out, model.Reaction{
 			At:    b.L,
 			Kind:  "vertical",
-			Force: -r.sL,
+			Force: applyRight(-r.sL),
 		})
 	}
 	if r.support.IsFixedEnd(0) {
