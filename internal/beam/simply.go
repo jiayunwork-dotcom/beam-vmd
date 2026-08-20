@@ -15,7 +15,7 @@ func solveSimply(b model.Beam) reactionSet {
 	s := model.SummarizeLoads(b)
 	sL := 0.0
 	if b.L > 0 {
-		sL = -s.MomentAboutOrigin / b.L
+		sL = applySL(-s.MomentAboutOrigin / b.L)
 	}
 	s0 := -s.TotalDown - sL
 	return reactionSet{
