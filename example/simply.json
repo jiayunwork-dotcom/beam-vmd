@@ -1,0 +1,9 @@
+{
+  "L": 10,
+  "EI": 1000,
+  "support": "simply",
+  "points": [
+    { "at": 5, "force": 100 }
+  ],
+  "distrib": []
+}

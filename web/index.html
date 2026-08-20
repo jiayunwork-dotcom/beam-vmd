@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>beam-vmd · 欧拉梁剪力/弯矩/挠度核算</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>beam-vmd</h1>
+    <p>欧拉梁剪力 V(x)、弯矩 M(x) 与挠度 y(x) 沿轴核算 · 支座反力与交叉校验</p>
+  </header>
+
+  <div class="layout">
+    <section class="panel">
+      <div class="row">
+        <button id="loadExample">加载示例</button>
+        <button id="solve">计算</button>
+      </div>
+      <textarea id="input" spellcheck="false"></textarea>
+      <div id="status" class="status"></div>
+
+      <h2 style="margin-top:16px">支座反力</h2>
+      <table id="reactions">
+        <thead><tr><th>位置 x</th><th>类型</th><th>力</th></tr></thead>
+        <tbody></tbody>
+      </table>
+
+      <h2 style="margin-top:16px">极值</h2>
+      <table id="extrema">
+        <tbody></tbody>
+      </table>
+
+      <h2 style="margin-top:16px">交叉校验</h2>
+      <div id="checks" class="checks"></div>
+    </section>
+
+    <section class="panel">
+      <h2>梁轴线与弯矩图</h2>
+      <svg id="diagram" viewBox="0 0 720 360" preserveAspectRatio="xMidYMid meet"></svg>
+      <p class="muted" style="font-size:12px;margin-top:8px">
+        弯矩纵标取自 POST /api/solve 返回的 M(x) 采样，未写死任何抛物线。
+      </p>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
