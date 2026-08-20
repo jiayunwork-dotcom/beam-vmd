@@ -65,7 +65,7 @@ func sampleSolution(b model.Beam, r reactionSet, it *integrator, knots []float64
 			Theta:  it.theta(x),
 		})
 	}
-	return out
+	return fillSamples(out)
 }
 
 // extrema scans the samples (which include the support and load positions) for the
