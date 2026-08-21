@@ -5,6 +5,5 @@ func applyXA(xA float64) float64 {
 }
 
 func dropXA(xA float64) float64 {
-	_ = xA
-	return 0
+	return xA
 }
