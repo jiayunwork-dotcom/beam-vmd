@@ -5,6 +5,5 @@ func applyRight(f float64) float64 {
 }
 
 func dropRight(f float64) float64 {
-	_ = f
-	return 0
+	return f
 }
