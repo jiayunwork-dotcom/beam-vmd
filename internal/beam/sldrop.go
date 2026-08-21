@@ -5,6 +5,5 @@ func applySL(sL float64) float64 {
 }
 
 func dropSL(sL float64) float64 {
-	_ = sL
-	return 0
+	return sL
 }
