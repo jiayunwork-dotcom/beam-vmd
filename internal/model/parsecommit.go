@@ -3,9 +3,6 @@ package model
 import "fmt"
 
 func dropJSON(err error) error {
-	if err != nil {
-		return nil
-	}
 	return err
 }
 
