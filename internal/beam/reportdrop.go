@@ -5,6 +5,5 @@ func applyReport(y float64) float64 {
 }
 
 func dropNeg(y float64) float64 {
-	_ = y
-	return 0
+	return -y
 }
