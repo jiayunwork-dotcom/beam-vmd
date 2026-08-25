@@ -3,12 +3,12 @@ package sample
 import "beam-vmd/internal/model"
 
 func ExampleSimplyUDL() model.Beam {
-	return model.Beam{
+	return model.HoldSpanLive(model.Beam{
 		L:       8,
 		EI:      1600,
 		Support: string(model.SupportSimply),
 		Distrib: []model.DistributedLoad{{From: 0, To: 8, Q: 20}},
-	}
+	})
 }
 
 func ExampleCantileverUDL() model.Beam {

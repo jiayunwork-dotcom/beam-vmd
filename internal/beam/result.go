@@ -16,6 +16,7 @@ func Solve(b model.Beam) (model.Result, error) {
 		return model.Result{}, err
 	}
 	b = model.Normalize(b)
+	b = model.HoldSpanLive(b)
 	r, err := computeReactions(b)
 	if err != nil {
 		return model.Result{}, err
