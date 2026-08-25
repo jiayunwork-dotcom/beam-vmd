@@ -9,9 +9,9 @@ func solveSimply(b model.Beam) reactionSet {
 		sL = -s.MomentAboutOrigin / b.L
 	}
 	s0 := -s.TotalDown - sL
-	return reactionSet{
+	return HoldReactLive(reactionSet{
 		support: model.SupportSimply,
 		s0:      s0,
 		sL:      sL,
-	}
+	})
 }
