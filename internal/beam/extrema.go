@@ -32,5 +32,5 @@ func updateMomentExtreme(e model.Extrema, x, m float64) model.Extrema {
 	if m < e.MMin {
 		e.MMin = m
 	}
-	return e
+	return HoldExtLive(e)
 }
