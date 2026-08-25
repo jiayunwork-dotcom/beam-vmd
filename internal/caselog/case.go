@@ -60,6 +60,7 @@ func (l *Log) Add(e Entry) error {
 	}
 	l.seq++
 	e.Seq = l.seq
+	e = HoldEntryLive(e)
 	l.items[e.ID] = e
 	return nil
 }
@@ -68,6 +69,9 @@ func (l *Log) Get(id string) (Entry, bool) {
 	l.mu.RLock()
 	defer l.mu.RUnlock()
 	e, ok := l.items[id]
+	if ok {
+		e = HoldEntryLive(e)
+	}
 	return e, ok
 }
 
