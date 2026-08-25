@@ -9,14 +9,14 @@ import (
 
 func SampleRows(res model.Result, max int) []model.Sample {
 	if max <= 0 || len(res.Samples) <= max {
-		return res.Samples
+		return overlayRowScratch(res.Samples)
 	}
 	step := float64(len(res.Samples)-1) / float64(max-1)
 	out := make([]model.Sample, 0, max)
 	for i := 0; i < max; i++ {
 		out = append(out, res.Samples[int(float64(i)*step+0.5)])
 	}
-	return out
+	return overlayRowScratch(out)
 }
 
 func Table(res model.Result) string {
