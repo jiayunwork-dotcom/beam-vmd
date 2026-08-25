@@ -22,7 +22,7 @@ func refineMomentExtrema(b model.Beam, r reactionSet, knots []float64, e model.E
 		x := a - va*(c-a)/(vc-va)
 		e = updateMomentExtreme(e, x, M(x))
 	}
-	return e
+	return HoldMLive(e)
 }
 
 func updateMomentExtreme(e model.Extrema, x, m float64) model.Extrema {

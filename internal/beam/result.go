@@ -25,6 +25,7 @@ func Solve(b model.Beam) (model.Result, error) {
 	samples := sampleSolution(b, r, it, knots)
 	e := extrema(samples)
 	e = refineMomentExtrema(b, r, knots, e)
+	e = HoldMLive(e)
 	checks := runChecks(b, r, samples, e)
 
 	return model.Result{
