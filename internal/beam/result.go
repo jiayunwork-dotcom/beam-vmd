@@ -12,6 +12,9 @@ func solveIntegrator(b model.Beam, r reactionSet) *integrator {
 }
 
 func Solve(b model.Beam) (model.Result, error) {
+	if err := abortSolveContext(); err != nil {
+		return model.Result{}, err
+	}
 	if err := model.Validate(b); err != nil {
 		return model.Result{}, err
 	}
