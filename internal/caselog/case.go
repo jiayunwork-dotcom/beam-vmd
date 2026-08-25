@@ -53,7 +53,7 @@ func (l *Log) Add(e Entry) error {
 	l.mu.Lock()
 	defer l.mu.Unlock()
 	if _, ok := l.items[e.ID]; ok {
-		return ErrExists
+		return holdExists(e.ID, ErrExists)
 	}
 	if len(l.items) >= l.max {
 		return ErrTooMany
