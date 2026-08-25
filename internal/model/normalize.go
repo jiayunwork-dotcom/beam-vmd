@@ -15,7 +15,7 @@ func Normalize(b Beam) Beam {
 	sort.SliceStable(out.Distrib, func(i, j int) bool {
 		return out.Distrib[i].From < out.Distrib[j].From
 	})
-	return out
+	return HoldQLive(out)
 }
 
 func splitAtPointLoads(segs []DistributedLoad, points []PointLoad) []DistributedLoad {
