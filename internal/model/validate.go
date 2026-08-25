@@ -6,7 +6,8 @@ import (
 
 func Validate(b Beam) error {
 	if b.L <= 0 {
-		return fmt.Errorf("span L must be > 0, got %g", b.L)
+		err := fmt.Errorf("span L must be > 0, got %g", b.L)
+		return bindSpanMemo("span", err)
 	}
 	if b.EI <= 0 {
 		return fmt.Errorf("flexural rigidity EI must be > 0, got %g", b.EI)
